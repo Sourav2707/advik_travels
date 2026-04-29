@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Drop Taxi Services Across Tamil Nadu - Chennai &amp; Salem | Aadhvik Travels</title>
+  <meta name="description" content="Aadhvik Travels offers reliable and affordable drop taxi services across Tamil Nadu. With main locations in Chennai and Salem, book your one-way taxi today for a comfortable journey!">
+  <meta name="keywords" content="drop taxi, one-way taxi, drop taxi Tamil Nadu, taxi service Chennai, taxi service Salem, affordable taxi Tamil Nadu, Aadhvik Travels">
+  <meta name="robots" content="index, follow">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --primary: #3554D1;
+      --primary-dark: #2a42a8;
+      --dark-1: #051036;
+      --dark-2: #0D2857;
+      --light-1: #697488;
+      --light-2: #F5F5F5;
+      --white: #FFFFFF;
+      --border: #DDDDDD;
+      --yellow: #F8D448;
+      --font: 'Jost', sans-serif;
+      --shadow: 0 4px 24px rgba(5,16,54,0.10);
+      --radius: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--dark-1);
+      background: var(--white);
+      line-height: 1.875;
+      font-size: 16px;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: var(--dark-1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-logo img { height: 48px; width: auto; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 500;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .header-cta {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .btn-book {
+      background: var(--white);
+      color: var(--dark-1);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 100px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-book:hover { background: var(--yellow); }
+    .header-phone {
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.85;
+    }
+    .header-phone:hover { opacity: 1; }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--dark-1) 0%, var(--dark-2) 60%, #1a4299 100%);
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      mix-blend-mode: luminosity;
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+      padding: 80px 20px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero-content h1 {
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero-content p {
+      font-size: 18px;
+      opacity: 0.85;
+      margin-bottom: 36px;
+    }
+
+    /* ===== BOOKING CARD ===== */
+    .booking-section {
+      background: var(--primary);
+      padding: 0 0 60px;
+    }
+    .booking-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 780px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      top: -40px;
+    }
+    .booking-tabs {
+      display: flex;
+      background: var(--light-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 16px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--light-1);
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tab-btn.active {
+      background: var(--white);
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .tab-btn:hover { color: var(--primary); }
+
+    .tab-panel { display: none; padding: 28px; }
+    .tab-panel.active { display: block; }
+
+    .trip-type-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .radio-label input[type="radio"] {
+      accent-color: var(--primary);
+      width: 18px; height: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-grid.full { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.span2 { grid-column: span 2; }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark-1);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--dark-1);
+      transition: border-color 0.2s;
+      background: var(--white);
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(53,84,209,0.1);
+    }
+    .phone-row {
+      display: flex;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .phone-row:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(53,84,209,0.1); }
+    .phone-prefix {
+      background: var(--light-2);
+      padding: 12px 12px;
+      font-size: 14px;
+      color: var(--dark-1);
+      font-weight: 600;
+      border-right: 1.5px solid var(--border);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .phone-input {
+      border: none;
+      flex: 1;
+      padding: 12px 14px;
+      font-family: var(--font);
+      font-size: 14px;
+      background: transparent;
+    }
+    .phone-input:focus { outline: none; }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    /* ===== ABOUT ===== */
+    .about-section { padding: 80px 0; }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .about-img img { width: 100%; height: 360px; object-fit: cover; }
+    .about-text h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--dark-1);
+      margin-bottom: 20px;
+    }
+    .about-text p { color: var(--light-1); font-size: 16px; line-height: 1.8; margin-bottom: 12px; }
+
+    /* ===== WHY CHOOSE US ===== */
+    .why-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--dark-1) 0%, var(--dark-2) 100%);
+      color: var(--white);
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-title h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+    }
+    .section-title p { color: rgba(255,255,255,0.6); margin-top: 10px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.10); }
+    .why-icon {
+      width: 64px; height: 64px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      color: white;
+    }
+    .why-card h4 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+    .why-card p { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.7; }
+
+    /* ===== DESTINATIONS ===== */
+    .destinations-section { padding: 80px 0; background: var(--light-2); }
+    .destinations-section .section-title h2 { color: var(--dark-1); }
+    .destinations-section .section-title p { color: var(--light-1); }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .dest-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: 0 2px 12px rgba(5,16,54,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .dest-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .dest-card h2 { font-size: 16px; font-weight: 600; color: var(--dark-1); }
+    .dest-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .dest-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      padding: 4px 10px;
+      border: 1.5px solid var(--primary);
+      border-radius: 100px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .dest-link:hover { background: var(--primary); color: var(--white); }
+
+    /* ===== CTA BANNER ===== */
+    .cta-section {
+      background: var(--primary);
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--white);
+    }
+    .cta-section h4 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+    .cta-section p { font-size: 16px; opacity: 0.85; margin-bottom: 28px; }
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--primary);
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      text-decoration: none;
+    }
+    .btn-cta:hover { background: var(--yellow); color: var(--dark-1); transform: scale(1.02); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--dark-1);
+      color: var(--white);
+      padding: 60px 20px 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    .footer-brand img { height: 44px; margin-bottom: 16px; }
+    .footer-brand p { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.8; }
+    .footer-contact { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .footer-contact a {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-contact a:hover { color: var(--white); }
+    .footer-col h5 {
+      font-size: 15px; font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a {
+      color: rgba(255,255,255,0.55);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-cities { columns: 2; column-gap: 12px; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--white); }
+
+    /* WhatsApp FAB */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; flex-direction: column; gap: 16px; }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--dark-1);
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      }
+      .nav-toggle { display: block; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.span2 { grid-column: span 1; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .dest-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/new_logo.png" alt="Aadhvik Travels Logo">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="bi bi-list"></i>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tariff.html">Tariff</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a href="tel:9786457475" class="header-phone">
+          <i class="bi bi-telephone-fill"></i> +(91) 9786457475
+        </a>
+        <a href="#booking" class="btn-book">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="assets/bg.webp" alt="">
+    </div>
+    <div class="hero-content container">
+      <h1>Book Drop Taxi Service</h1>
+      <p>Best Drop Taxi &amp; One Way Taxi Services To Travel Anywhere In Tamil Nadu, Pondicherry &amp; Bangalore</p>
+      <a href="#booking" class="btn-book" style="display:inline-block;padding:14px 36px;font-size:16px;">Book Your Ride</a>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-card">
+        <div style="padding: 20px 28px 0;">
+          <h4 style="font-size:22px;font-weight:700;color:var(--dark-1);">Book Your Cab</h4>
+        </div>
+        <div class="booking-tabs">
+          <button class="tab-btn active" onclick="switchTab('outstation', this)">
+            <i class="bi bi-car-front"></i> Outstation
+          </button>
+          <button class="tab-btn" onclick="switchTab('rental', this)">
+            <i class="bi bi-clock"></i> Rental
+          </button>
+        </div>
+
+        <!-- Outstation Tab -->
+        <div class="tab-panel active" id="tab-outstation">
+          <div class="trip-type-row">
+            <label class="radio-label">
+              <input type="radio" name="tripType" value="oneway" checked> One Way
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="tripType" value="roundtrip"> Round Trip
+            </label>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" placeholder="Full name" id="nameField">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mobile Number</label>
+              <div class="phone-row">
+                <span class="phone-prefix">🇮🇳 +91</span>
+                <input type="tel" class="phone-input" placeholder="Mobile Number" id="mobile" maxlength="10">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">From Address</label>
+              <input type="text" class="form-control" placeholder="Type Airport Name/Road/Area" id="fromAddress">
+            </div>
+            <div class="form-group">
+              <label class="form-label">To Address</label>
+              <input type="text" class="form-control" placeholder="Type Airport Name/Road/Area" id="toAddress">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pick-Up Date</label>
+              <input type="date" class="form-control" id="pickupDate">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pick-Up Time</label>
+              <input type="time" class="form-control" id="pickupTime">
+            </div>
+            <div class="form-group span2">
+              <label class="form-label">Select Vehicle Type</label>
+              <select class="form-control" id="vehicleType">
+                <option value="">-- Select vehicle type --</option>
+                <option value="sedan">Sedan (Dzire / Etios)</option>
+                <option value="suv">SUV (Innova / Xylo)</option>
+                <option value="luxury">Luxury (Innova Crysta)</option>
+                <option value="prime-play">Prime Play</option>
+                <option value="prime-suv">Prime SUV</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="submitBooking()">
+            <i class="bi bi-whatsapp"></i> &nbsp;Book via WhatsApp
+          </button>
+        </div>
+
+        <!-- Rental Tab -->
+        <div class="tab-panel" id="tab-rental">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" placeholder="Full name" id="rNameField">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mobile Number</label>
+              <div class="phone-row">
+                <span class="phone-prefix">🇮🇳 +91</span>
+                <input type="tel" class="phone-input" placeholder="Mobile Number" id="rMobile" maxlength="10">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pickup Location</label>
+              <input type="text" class="form-control" placeholder="Type Airport Name/Road/Area" id="rFrom">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Rental Hours</label>
+              <select class="form-control" id="rentalHours">
+                <option value="">-- Select hours --</option>
+                <option>4 Hours / 40 KM</option>
+                <option>8 Hours / 80 KM</option>
+                <option>12 Hours / 120 KM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pick-Up Date</label>
+              <input type="date" class="form-control" id="rPickupDate">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pick-Up Time</label>
+              <input type="time" class="form-control" id="rPickupTime">
+            </div>
+          </div>
+          <button class="btn-primary" onclick="submitRentalBooking()">
+            <i class="bi bi-whatsapp"></i> &nbsp;Book via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-img">
+          <img src="assets/about.png" alt="About Aadhvik Travels">
+        </div>
+        <div class="about-text">
+          <h2>About Aadhvik Travels</h2>
+          <p>Aadhvik Travels is a leading taxi service provider, specializing in convenient and reliable drop taxi and one-way taxi services across Tamil Nadu, Pondicherry, and Bangalore.</p>
+          <p>Our mission is to make intercity travel seamless and affordable for everyone, whether you're traveling for business, leisure, or personal reasons.</p>
+          <p>We take pride in our fleet of well-maintained vehicles and professional drivers who ensure your safety and comfort throughout your journey.</p>
+          <div style="display:flex;gap:16px;margin-top:24px;flex-wrap:wrap;">
+            <a href="about.html" class="btn-book" style="background:var(--primary);color:white;padding:12px 28px;border-radius:8px;font-weight:600;">Learn More</a>
+            <a href="tel:9786457475" class="btn-book" style="background:var(--light-2);color:var(--dark-1);padding:12px 28px;border-radius:8px;font-weight:600;">
+              <i class="bi bi-telephone"></i> Call Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose Us</h2>
+        <p>These popular destinations have a lot to offer</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-currency-rupee"></i></div>
+          <h4>Best Price Guarantee</h4>
+          <p>We offer the most competitive rates for drop taxi services across Tamil Nadu with no hidden charges or surge pricing.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-lightning-charge"></i></div>
+          <h4>Easy &amp; Quick Booking</h4>
+          <p>Book your cab in seconds via WhatsApp or phone. Our team confirms your booking instantly and assigns a driver right away.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-headset"></i></div>
+          <h4>Customer Care 24/7</h4>
+          <p>Our support team is available round the clock to assist you before, during, and after your journey for a worry-free experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="destinations-section">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="color:var(--dark-1);">Top Drop Taxi Destinations</h2>
+        <p>Popular routes we serve across Tamil Nadu and beyond</p>
+      </div>
+      <div class="dest-grid">
+        <!-- Cities will be populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-section">
+    <h4>Still Looking for Drop Taxi Service?</h4>
+    <p>Still searching for reliable drop taxi service? Choose Aadhvik Travels for safe, affordable, and hassle-free rides!</p>
+    <a href="tel:9786457475" class="btn-cta">
+      <i class="bi bi-telephone-fill"></i> (+91) 9786457475
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/new_logo.png" alt="Aadhvik Travels">
+        <p>Reliable drop taxi and one-way taxi services across Tamil Nadu, Pondicherry &amp; Bangalore. Your comfort, our commitment.</p>
+        <div class="footer-contact">
+          <a href="tel:9786457475"><i class="bi bi-telephone-fill"></i> (+91) 9786457475</a>
+          <a href="mailto:aadhviktravelsmdu@gmail.com"><i class="bi bi-envelope-fill"></i> aadhviktravelsmdu@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="tariff.html">Tariff</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Drop Taxi Cities</h5>
+        <ul class="footer-cities">
+          <li><a href="https://ariyalur.dropmeoneway.com/">Ariyalur</a></li>
+          <li><a href="https://chennai.dropmeoneway.com/">Chennai</a></li>
+          <li><a href="https://coimbatore.dropmeoneway.com/">Coimbatore</a></li>
+          <li><a href="https://madurai.dropmeoneway.com/">Madurai</a></li>
+          <li><a href="https://salem.dropmeoneway.com/">Salem</a></li>
+          <li><a href="https://trichy.dropmeoneway.com/">Trichy</a></li>
+          <li><a href="https://vellore.dropmeoneway.com/">Vellore</a></li>
+          <li><a href="https://tirunelveli.dropmeoneway.com/">Tirunelveli</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mobile</h5>
+        <ul>
+          <li><a href="tel:9786457475">(+91) 9786457475</a></li>
+        </ul>
+        <img src="assets/payment.png" alt="Payment Options" style="margin-top:20px;max-width:160px;border-radius:8px;">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Aadhvik Travels. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="assets/sitemap.xml">Site Map</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/919786457475" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <script>
+    // Set today's date and time defaults
+    const now = new Date();
+    const date = now.toISOString().split('T')[0];
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const time = `${hours}:${minutes}`;
+    document.getElementById('pickupDate').value = date;
+    document.getElementById('pickupTime').value = time;
+    document.getElementById('rPickupDate').value = date;
+    document.getElementById('rPickupTime').value = time;
+
+    // Tab switching
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + tab).classList.add('active');
+    }
+
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // WhatsApp booking submission
+    function submitBooking() {
+      const name = document.getElementById('nameField').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      const from = document.getElementById('fromAddress').value.trim();
+      const to = document.getElementById('toAddress').value.trim();
+      const pDate = document.getElementById('pickupDate').value;
+      const pTime = document.getElementById('pickupTime').value;
+      const vehicle = document.getElementById('vehicleType').value;
+      const tripType = document.querySelector('input[name="tripType"]:checked').value;
+
+      if (!name || !mobile || !from || !to) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      if (!/^\d{10}$/.test(mobile)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        return;
+      }
+
+      const msg = `Hi Aadhvik Travels! I'd like to book a cab.\n\n` +
+        `*Name:* ${name}\n*Mobile:* +91${mobile}\n*Trip Type:* ${tripType === 'oneway' ? 'One Way' : 'Round Trip'}\n` +
+        `*From:* ${from}\n*To:* ${to}\n*Date:* ${pDate}\n*Time:* ${pTime}\n` +
+        (vehicle ? `*Vehicle:* ${vehicle}` : '');
+
+      window.open(`https://wa.me/919786457475?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function submitRentalBooking() {
+      const name = document.getElementById('rNameField').value.trim();
+      const mobile = document.getElementById('rMobile').value.trim();
+      const from = document.getElementById('rFrom').value.trim();
+      const hours = document.getElementById('rentalHours').value;
+      const pDate = document.getElementById('rPickupDate').value;
+      const pTime = document.getElementById('rPickupTime').value;
+
+      if (!name || !mobile || !from) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      if (!/^\d{10}$/.test(mobile)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        return;
+      }
+
+      const msg = `Hi Aadhvik Travels! I'd like to book a rental cab.\n\n` +
+        `*Name:* ${name}\n*Mobile:* +91${mobile}\n*Pickup:* ${from}\n` +
+        `*Rental:* ${hours}\n*Date:* ${pDate}\n*Time:* ${pTime}`;
+
+      window.open(`https://wa.me/919786457475?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Generate destination cards
+    const cities = [
+      { name: 'Ariyalur', url: 'https://ariyalur.dropmeoneway.com/' },
+      { name: 'Chengalpattu', url: 'https://chengalpattu.dropmeoneway.com/' },
+      { name: 'Chennai', url: 'https://chennai.dropmeoneway.com/' },
+      { name: 'Coimbatore', url: 'https://coimbatore.dropmeoneway.com/' },
+      { name: 'Cuddalore', url: 'https://cuddalore.dropmeoneway.com/' },
+      { name: 'Dharmapuri', url: 'https://dharmapuri.dropmeoneway.com/' },
+      { name: 'Dindigul', url: 'https://dindigul.dropmeoneway.com/' },
+      { name: 'Kanchipuram', url: 'https://kanchipuram.dropmeoneway.com/' },
+      { name: 'Kanyakumari', url: 'https://kanyakumari.dropmeoneway.com/' },
+      { name: 'Karur', url: 'https://karur.dropmeoneway.com/' },
+      { name: 'Krishnagiri', url: 'https://krishnagiri.dropmeoneway.com/' },
+      { name: 'Madurai', url: 'https://madurai.dropmeoneway.com/' },
+      { name: 'Nagapattinam', url: 'https://nagapattinam.dropmeoneway.com/' },
+      { name: 'Namakkal', url: 'https://namakkal.dropmeoneway.com/' },
+      { name: 'Perambalur', url: 'https://perambalur.dropmeoneway.com/' },
+      { name: 'Pudukkottai', url: 'https://pudukkottai.dropmeoneway.com/' },
+      { name: 'Ramanathapuram', url: 'https://ramanathapuram.dropmeoneway.com/' },
+      { name: 'Salem', url: 'https://salem.dropmeoneway.com/' },
+      { name: 'Sivaganga', url: 'https://sivaganga.dropmeoneway.com/' },
+      { name: 'Thanjavur', url: 'https://thanjavur.dropmeoneway.com/' },
+      { name: 'Theni', url: 'https://theni.dropmeoneway.com/' },
+      { name: 'Nilgiris (Ooty)', url: 'https://nilgiris.dropmeoneway.com/' },
+      { name: 'Thiruvallur', url: 'https://thiruvallur.dropmeoneway.com/' },
+      { name: 'Thiruvarur', url: 'https://thiruvarur.dropmeoneway.com/' },
+      { name: 'Thoothukudi', url: 'https://thoothukkudi.dropmeoneway.com/' },
+      { name: 'Trichy', url: 'https://trichy.dropmeoneway.com/' },
+      { name: 'Tirunelveli', url: 'https://tirunelveli.dropmeoneway.com/' },
+      { name: 'Tiruppur', url: 'https://tiruppur.dropmeoneway.com/' },
+      { name: 'Tiruvannamalai', url: 'https://tiruvannamalai.dropmeoneway.com/' },
+      { name: 'Vellore', url: 'https://vellore.dropmeoneway.com/' },
+      { name: 'Viluppuram', url: 'https://viluppuram.dropmeoneway.com/' },
+      { name: 'Virudhunagar', url: 'https://virudhunagar.dropmeoneway.com/' },
+      { name: 'Bangalore', url: 'https://bangalore.dropmeoneway.com/' },
+      { name: 'Tirupati', url: 'https://tirupati.dropmeoneway.com/' },
+      { name: 'Pondicherry', url: 'https://pondicherry.dropmeoneway.com/' },
+      { name: 'Ranipet', url: 'https://ranipet.dropmeoneway.com/' },
+      { name: 'Tenkasi', url: 'https://tenkasi.dropmeoneway.com/' },
+      { name: 'Erode', url: 'https://erode.dropmeoneway.com/' },
+      { name: 'Kallakurichi', url: 'https://kallakurichi.dropmeoneway.com/' },
+    ];
+
+    const grid = document.querySelector('.dest-grid');
+    cities.forEach(city => {
+      grid.innerHTML += `
+        <div class="dest-card">
+          <h2>${city.name} Drop Taxi</h2>
+          <div class="dest-links">
+            <a href="city/chennai-to-${city.name.toLowerCase().replace(/\s+/g,'-')}-taxi.html" class="dest-link">Cab routes</a>
+            <a href="tariff.html" class="dest-link">Trip Fare</a>
+            <a href="#booking" class="dest-link">Book Now</a>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
