@@ -1,0 +1,185 @@
+
+<title>About Us | Aadhvik Travels</title>
+<meta name="description" content="Learn about Aadhvik Travels - Tamil Nadu's trusted drop taxi and one-way cab service provider.">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:#051036;background:#fff;line-height:1.875;font-size:16px}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+/* Header */
+.hdr{background:#051036;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1200px;margin:0 auto}
+.nav{display:flex;gap:32px;align-items:center}
+.nav a{color:#fff;font-size:15px;font-weight:500;opacity:.85;transition:opacity .2s}
+.nav a:hover,.nav a.active{opacity:1}
+.btn-bk{background:#fff;color:#051036;font-size:14px;font-weight:600;padding:10px 24px;border-radius:100px;white-space:nowrap;transition:background .2s}
+.btn-bk:hover{background:#F8D448}
+.ntog{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px}
+/* Page hero */
+.pg-hero{background:linear-gradient(135deg,#051036,#0D2857);padding:72px 20px;text-align:center;color:#fff}
+.pg-hero h1{font-size:clamp(28px,4vw,48px);font-weight:700;margin-bottom:12px}
+.pg-hero p{font-size:17px;opacity:.7}
+.breadcrumb{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px;font-size:14px;color:rgba(255,255,255,.5)}
+.breadcrumb a{color:rgba(255,255,255,.7)}
+.breadcrumb span{color:#F8D448}
+/* Cards */
+.card{background:#fff;border-radius:12px;padding:32px;box-shadow:0 4px 24px rgba(5,16,54,.1)}
+.section-title{text-align:center;margin-bottom:48px}
+.section-title h2{font-size:clamp(26px,3vw,38px);font-weight:700}
+/* CTA */
+.cta-sec{background:#3554D1;padding:64px 20px;text-align:center;color:#fff}
+.cta-sec h4{font-size:28px;font-weight:700;margin-bottom:12px}
+.cta-sec p{font-size:16px;opacity:.85;margin-bottom:28px}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#3554D1;font-family:'Jost',sans-serif;font-size:16px;font-weight:700;padding:14px 36px;border-radius:100px;border:none;cursor:pointer;transition:background .2s,transform .1s}
+.btn-cta:hover{background:#F8D448;color:#051036;transform:scale(1.02)}
+/* Footer */
+.ftr{background:#051036;color:#fff;padding:60px 20px 30px}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+/* WhatsApp */
+.wa-fab{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.1)}
+/* Table */
+table{width:100%;border-collapse:collapse}
+th{background:#3554D1;color:#fff;padding:14px 16px;text-align:left;font-size:14px;font-weight:600}
+td{padding:13px 16px;font-size:14px;border-bottom:1px solid #DDDDDD}
+tr:nth-child(even){background:#F5F5F5}
+tr:hover td{background:#eef1fc}
+/* Form */
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-label{font-size:13px;font-weight:600;color:#051036;text-transform:uppercase;letter-spacing:.04em}
+.form-control{width:100%;padding:12px 14px;border:1.5px solid #DDDDDD;border-radius:8px;font-family:'Jost',sans-serif;font-size:14px;color:#051036;transition:border-color .2s}
+.form-control:focus{outline:none;border-color:#3554D1;box-shadow:0 0 0 3px rgba(53,84,209,.1)}
+.btn-primary{background:#3554D1;color:#fff;font-family:'Jost',sans-serif;font-size:15px;font-weight:600;padding:14px 32px;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:#2a42a8}
+/* Responsive */
+@media(max-width:900px){.ftr-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){
+.nav{display:none;flex-direction:column;gap:16px}
+.nav.open{display:flex;position:absolute;top:72px;left:0;right:0;background:#051036;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.ntog{display:block}
+.ftr-grid{grid-template-columns:1fr}
+}
+</style>
+</head><body>
+<header class="hdr">
+<div class="hdr-inner">
+<a href="index.html"><img src="assets/new_logo.png" alt="Aadhvik Travels" style="height:48px;"></a>
+<button class="ntog" id="ntog"><i class="bi bi-list"></i></button>
+<nav class="nav" id="nav"><a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="tariff.html">Tariff</a><a href="contact.html">Contact</a></nav>
+<div style="display:flex;align-items:center;gap:14px;">
+<a href="tel:9786457475" style="color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;opacity:.85;text-decoration:none;"><i class="bi bi-telephone-fill"></i>+(91) 9786457475</a>
+<a href="index.html#booking" class="btn-bk">Book Now</a>
+</div></div></header>
+<section class="pg-hero">
+  <h1>About Aadhvik Travels</h1>
+  <p>Tamil Nadu's most trusted drop taxi &amp; one-way cab service</p>
+  <div class="breadcrumb"><a href="index.html">Home</a><i class="bi bi-chevron-right"></i><span>About</span></div>
+</section>
+
+<section style="padding:80px 0;">
+<div class="container">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+<div style="border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(5,16,54,.1);position:relative;">
+<img src="assets/about.png" alt="Aadhvik Travels" style="width:100%;height:420px;object-fit:cover;">
+<div style="position:absolute;bottom:24px;left:24px;background:#3554D1;color:#fff;padding:14px 20px;border-radius:10px;font-weight:700;font-size:14px;line-height:1.5;box-shadow:0 4px 16px rgba(53,84,209,.4);">🚗 Since 2018<br>Trusted by 10,000+ Customers</div>
+</div>
+<div>
+<h2 style="font-size:clamp(24px,3vw,36px);font-weight:700;margin-bottom:20px;">Who We Are</h2>
+<p style="color:#697488;line-height:1.85;margin-bottom:14px;">Aadhvik Travels is a leading taxi service provider, specializing in convenient and reliable drop taxi and one-way taxi services across Tamil Nadu, Pondicherry, and Bangalore.</p>
+<p style="color:#697488;line-height:1.85;margin-bottom:14px;">Founded with a simple mission — to make intercity travel seamless and affordable — we have grown to become one of Tamil Nadu's most trusted cab services, with thousands of happy customers every month.</p>
+<p style="color:#697488;line-height:1.85;margin-bottom:28px;">Whether you're traveling for business, attending a function, or going on vacation, we ensure a comfortable, safe, and punctual journey every single time.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+<div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><i class="bi bi-check-circle-fill" style="color:#3554D1;font-size:18px;"></i>Professional drivers</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><i class="bi bi-check-circle-fill" style="color:#3554D1;font-size:18px;"></i>Well-maintained fleet</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><i class="bi bi-check-circle-fill" style="color:#3554D1;font-size:18px;"></i>No hidden charges</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><i class="bi bi-check-circle-fill" style="color:#3554D1;font-size:18px;"></i>24/7 support</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><i class="bi bi-check-circle-fill" style="color:#3554D1;font-size:18px;"></i>39 cities covered</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><i class="bi bi-check-circle-fill" style="color:#3554D1;font-size:18px;"></i>WhatsApp booking</div>
+</div></div></div></div></section>
+
+<section style="background:#3554D1;padding:60px 20px;">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1200px;margin:0 auto;">
+<div style="text-align:center;color:#fff;"><div style="font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1;margin-bottom:8px;">10,000+</div><div style="font-size:14px;opacity:.8;">Happy Customers</div></div>
+<div style="text-align:center;color:#fff;"><div style="font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1;margin-bottom:8px;">39</div><div style="font-size:14px;opacity:.8;">Cities Covered</div></div>
+<div style="text-align:center;color:#fff;"><div style="font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1;margin-bottom:8px;">6+</div><div style="font-size:14px;opacity:.8;">Years of Service</div></div>
+<div style="text-align:center;color:#fff;"><div style="font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1;margin-bottom:8px;">24/7</div><div style="font-size:14px;opacity:.8;">Customer Support</div></div>
+</div></section>
+
+<section style="padding:80px 0;background:#F5F5F5;">
+<div class="container">
+<div class="section-title"><h2>Our Mission &amp; Vision</h2><p style="color:#697488;margin-top:10px;">What drives us every day</p></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+<div class="card"><div style="width:60px;height:60px;background:#3554D1;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;margin-bottom:20px;"><i class="bi bi-bullseye"></i></div><h3 style="font-size:22px;font-weight:700;margin-bottom:14px;">Our Mission</h3><p style="color:#697488;line-height:1.8;">To provide safe, reliable, and affordable intercity taxi services across Tamil Nadu, making every journey comfortable and stress-free. We are committed to being on time, every time, with transparent pricing and professional service.</p></div>
+<div class="card"><div style="width:60px;height:60px;background:#3554D1;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;margin-bottom:20px;"><i class="bi bi-eye"></i></div><h3 style="font-size:22px;font-weight:700;margin-bottom:14px;">Our Vision</h3><p style="color:#697488;line-height:1.8;">To become the most trusted and preferred drop taxi service across South India, connecting cities seamlessly while setting the benchmark for customer experience, driver professionalism, and travel affordability.</p></div>
+</div></div></section>
+
+<section style="padding:80px 0;">
+<div class="container">
+<div class="section-title"><h2>Our Core Values</h2><p style="color:#697488;margin-top:10px;">The principles that guide everything we do</p></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+<div class="card" style="border:1.5px solid #DDDDDD;box-shadow:none;text-align:center;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='#3554D1';this.style.boxShadow='0 4px 24px rgba(5,16,54,.1)'" onmouseout="this.style.borderColor='#DDDDDD';this.style.boxShadow='none'"><div style="font-size:36px;margin-bottom:16px;">🛡️</div><h4 style="font-size:17px;font-weight:700;margin-bottom:10px;">Safety First</h4><p style="color:#697488;font-size:14px;line-height:1.75;">All our drivers are verified, trained, and licensed. Our vehicles undergo regular maintenance checks to ensure your safety.</p></div>
+<div class="card" style="border:1.5px solid #DDDDDD;box-shadow:none;text-align:center;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='#3554D1';this.style.boxShadow='0 4px 24px rgba(5,16,54,.1)'" onmouseout="this.style.borderColor='#DDDDDD';this.style.boxShadow='none'"><div style="font-size:36px;margin-bottom:16px;">💰</div><h4 style="font-size:17px;font-weight:700;margin-bottom:10px;">Transparent Pricing</h4><p style="color:#697488;font-size:14px;line-height:1.75;">What you see is what you pay. No surprise charges, no surge pricing. Honest, upfront fares that build lasting trust.</p></div>
+<div class="card" style="border:1.5px solid #DDDDDD;box-shadow:none;text-align:center;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='#3554D1';this.style.boxShadow='0 4px 24px rgba(5,16,54,.1)'" onmouseout="this.style.borderColor='#DDDDDD';this.style.boxShadow='none'"><div style="font-size:36px;margin-bottom:16px;">⏰</div><h4 style="font-size:17px;font-weight:700;margin-bottom:10px;">Punctuality</h4><p style="color:#697488;font-size:14px;line-height:1.75;">We respect your time. Our drivers arrive on time and take the most efficient routes to your destination.</p></div>
+<div class="card" style="border:1.5px solid #DDDDDD;box-shadow:none;text-align:center;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='#3554D1';this.style.boxShadow='0 4px 24px rgba(5,16,54,.1)'" onmouseout="this.style.borderColor='#DDDDDD';this.style.boxShadow='none'"><div style="font-size:36px;margin-bottom:16px;">😊</div><h4 style="font-size:17px;font-weight:700;margin-bottom:10px;">Customer First</h4><p style="color:#697488;font-size:14px;line-height:1.75;">Your comfort and satisfaction are our top priority. We listen, improve, and go the extra mile to exceed expectations.</p></div>
+<div class="card" style="border:1.5px solid #DDDDDD;box-shadow:none;text-align:center;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='#3554D1';this.style.boxShadow='0 4px 24px rgba(5,16,54,.1)'" onmouseout="this.style.borderColor='#DDDDDD';this.style.boxShadow='none'"><div style="font-size:36px;margin-bottom:16px;">🌿</div><h4 style="font-size:17px;font-weight:700;margin-bottom:10px;">Responsibility</h4><p style="color:#697488;font-size:14px;line-height:1.75;">We're conscious of our environment and encourage responsible driving habits to reduce our carbon footprint.</p></div>
+<div class="card" style="border:1.5px solid #DDDDDD;box-shadow:none;text-align:center;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='#3554D1';this.style.boxShadow='0 4px 24px rgba(5,16,54,.1)'" onmouseout="this.style.borderColor='#DDDDDD';this.style.boxShadow='none'"><div style="font-size:36px;margin-bottom:16px;">📞</div><h4 style="font-size:17px;font-weight:700;margin-bottom:10px;">Always Available</h4><p style="color:#697488;font-size:14px;line-height:1.75;">Our support team is available 24/7. Whenever you need help, we're just one call or WhatsApp message away.</p></div>
+</div></div></section>
+
+<section style="padding:80px 0;background:#F5F5F5;">
+<div class="container">
+<div class="section-title"><h2>Our Fleet</h2><p style="color:#697488;margin-top:10px;">Comfortable, clean and well-maintained vehicles for every journey</p></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+<div class="card" style="padding:0;overflow:hidden;"><img src="assets/lux-1.png" alt="Sedan" style="width:100%;height:200px;object-fit:cover;"><div style="padding:20px;"><h4 style="font-weight:700;margin-bottom:6px;">Sedan (Dzire / Etios)</h4><p style="color:#697488;font-size:13px;margin-bottom:12px;">Perfect for solo travelers and couples. Economical for intercity travel.</p><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">4 Seats</span><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">AC</span><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">Best Value</span></div></div></div>
+<div class="card" style="padding:0;overflow:hidden;"><img src="assets/prime-suv-1.png" alt="SUV" style="width:100%;height:200px;object-fit:cover;"><div style="padding:20px;"><h4 style="font-weight:700;margin-bottom:6px;">SUV (Innova / Xylo)</h4><p style="color:#697488;font-size:13px;margin-bottom:12px;">Ideal for families. Spacious and comfortable for long-distance travel.</p><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">6–7 Seats</span><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">AC</span><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">Large Boot</span></div></div></div>
+<div class="card" style="padding:0;overflow:hidden;"><img src="assets/prime-play-1.png" alt="Luxury" style="width:100%;height:200px;object-fit:cover;"><div style="padding:20px;"><h4 style="font-weight:700;margin-bottom:6px;">Innova Crysta (Luxury)</h4><p style="color:#697488;font-size:13px;margin-bottom:12px;">Premium comfort with leather seats and smooth ride for long trips.</p><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">6 Seats</span><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">Premium AC</span><span style="font-size:12px;font-weight:600;color:#3554D1;background:#eef1fc;padding:3px 10px;border-radius:100px;">Luxury</span></div></div></div>
+</div></div></section>
+
+<section class="cta-sec"><h4>Ready to Book Your Ride?</h4><p>Experience the most comfortable and affordable drop taxi service in Tamil Nadu.</p><a href="index.html#booking" class="btn-cta"><i class="bi bi-car-front-fill"></i>Book Now</a></section>
+<footer class="ftr">
+<div class="ftr-grid">
+<div><img src="assets/new_logo.png" alt="Aadhvik Travels" style="height:44px;margin-bottom:16px;">
+<p style="color:rgba(255,255,255,.55);font-size:14px;line-height:1.8;">Reliable drop taxi and one-way taxi services across Tamil Nadu, Pondicherry &amp; Bangalore.</p>
+<div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+<a href="tel:9786457475" style="color:rgba(255,255,255,.7);font-size:14px;display:flex;align-items:center;gap:8px;text-decoration:none;"><i class="bi bi-telephone-fill"></i>(+91) 9786457475</a>
+<a href="mailto:aadhviktravelsmdu@gmail.com" style="color:rgba(255,255,255,.7);font-size:14px;display:flex;align-items:center;gap:8px;text-decoration:none;"><i class="bi bi-envelope-fill"></i>aadhviktravelsmdu@gmail.com</a>
+</div></div>
+<div><h5 style="font-size:15px;font-weight:600;margin-bottom:16px;">Company</h5>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<a href="index.html" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Home</a>
+<a href="about.html" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">About Us</a>
+<a href="tariff.html" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Tariff</a>
+<a href="contact.html" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Contact</a>
+<a href="terms.html" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Terms</a>
+<a href="privacy.html" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Privacy</a>
+</div></div>
+<div><h5 style="font-size:15px;font-weight:600;margin-bottom:16px;">Popular Routes</h5>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<a href="#" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Chennai to Madurai</a>
+<a href="#" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Chennai to Coimbatore</a>
+<a href="#" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Chennai to Salem</a>
+<a href="#" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Chennai to Trichy</a>
+<a href="#" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">Chennai to Vellore</a>
+</div></div>
+<div><h5 style="font-size:15px;font-weight:600;margin-bottom:16px;">Contact</h5>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<a href="tel:9786457475" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">(+91) 9786457475</a>
+<a href="mailto:aadhviktravelsmdu@gmail.com" style="color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;">aadhviktravelsmdu@gmail.com</a>
+</div></div>
+</div>
+<div style="max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.4);">
+<span>© 2024 Aadhvik Travels. All rights reserved.</span>
+<div style="display:flex;gap:20px;"><a href="privacy.html" style="color:rgba(255,255,255,.4);text-decoration:none;">Privacy</a><a href="terms.html" style="color:rgba(255,255,255,.4);text-decoration:none;">Terms</a></div>
+</div></footer>
+<a href="https://wa.me/919786457475" class="wa-fab" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<script>
+document.getElementById('ntog').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+</script></body></html>
