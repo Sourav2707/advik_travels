@@ -1,0 +1,90 @@
+/* ===== Shared CSS for all Aadhvik Travels pages ===== */
+:root {
+  --primary: #3554D1;
+  --primary-dark: #2a42a8;
+  --dark-1: #051036;
+  --dark-2: #0D2857;
+  --light-1: #697488;
+  --light-2: #F5F5F5;
+  --white: #FFFFFF;
+  --border: #DDDDDD;
+  --yellow: #F8D448;
+  --font: 'Jost', sans-serif;
+  --shadow: 0 4px 24px rgba(5,16,54,0.10);
+  --radius: 12px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--dark-1); background: var(--white); line-height: 1.875; font-size: 16px; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER */
+.header { background: var(--dark-1); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; max-width: 1200px; margin: 0 auto; }
+.header-logo img { height: 48px; width: auto; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { color: var(--white); font-size: 15px; font-weight: 500; opacity: 0.75; transition: opacity 0.2s; }
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
+.header-cta { display: flex; align-items: center; gap: 16px; }
+.btn-book { background: var(--white); color: var(--dark-1); font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 100px; transition: background 0.2s; white-space: nowrap; }
+.btn-book:hover { background: var(--yellow); }
+.header-phone { color: var(--white); font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; opacity: 0.85; }
+.header-phone:hover { opacity: 1; }
+.nav-toggle { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; padding: 4px; }
+
+/* SECTION TITLE */
+.section-title { text-align: center; margin-bottom: 48px; }
+.section-title h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 700; }
+.section-title p { margin-top: 10px; font-size: 16px; }
+
+/* CTA SECTION */
+.cta-section { background: var(--primary); padding: 64px 20px; text-align: center; color: var(--white); }
+.cta-section h4 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+.cta-section p { font-size: 16px; opacity: 0.85; margin-bottom: 28px; }
+.btn-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--primary); font-family: var(--font); font-size: 16px; font-weight: 700; padding: 14px 36px; border-radius: 100px; transition: background 0.2s, transform 0.1s; }
+.btn-cta:hover { background: var(--yellow); color: var(--dark-1); transform: scale(1.02); }
+
+/* FOOTER */
+.footer { background: var(--dark-1); color: var(--white); padding: 60px 20px 30px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+.footer-brand img { height: 44px; margin-bottom: 16px; }
+.footer-brand p { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.8; }
+.footer-contact { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.footer-contact a { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7); font-size: 14px; transition: color 0.2s; }
+.footer-contact a:hover { color: var(--white); }
+.footer-col h5 { font-size: 15px; font-weight: 600; margin-bottom: 16px; }
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a { color: rgba(255,255,255,0.55); font-size: 14px; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--white); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.4); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.footer-bottom-links a:hover { color: var(--white); }
+
+/* WHATSAPP FAB */
+.whatsapp-btn { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: transform 0.2s; }
+.whatsapp-btn:hover { transform: scale(1.1); }
+
+/* PAGE HERO */
+.page-hero { background: linear-gradient(135deg, var(--dark-1) 0%, var(--dark-2) 100%); padding: 80px 20px; text-align: center; color: white; }
+.page-hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; margin-bottom: 12px; }
+.page-hero p { font-size: 17px; opacity: 0.75; }
+.breadcrumb { font-size: 13px; opacity: 0.55; margin-bottom: 16px; }
+.breadcrumb a { color: white; }
+.breadcrumb span { margin: 0 8px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; flex-direction: column; gap: 16px; }
+  .nav-links.open { display: flex; position: absolute; top: 76px; left: 0; right: 0; background: var(--dark-1); padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  .nav-toggle { display: block; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .header-cta .header-phone { display: none; }
+}
