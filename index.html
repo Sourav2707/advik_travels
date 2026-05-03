@@ -490,27 +490,97 @@
     }
 
     /* ===== RESPONSIVE ===== */
+    /* ===== HEADER PHONES ===== */
+    .header-phones { display: flex; flex-direction: column; gap: 2px; }
+    .header-cta { gap: 10px; }
+
     @media (max-width: 900px) {
       .about-inner { grid-template-columns: 1fr; gap: 32px; }
       .why-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 640px) {
-      .nav-links { display: none; flex-direction: column; gap: 16px; }
+    @media (max-width: 768px) {
+      /* Header: hide phone in header, keep book button */
+      .header-phones { display: none; }
+      .header-cta { gap: 8px; }
+
+      /* Hero */
+      .hero { min-height: 320px; }
+      .hero-content { padding: 48px 16px 40px; }
+      .hero-content h1 { font-size: 26px; }
+      .hero-content p { font-size: 15px; margin-bottom: 24px; }
+
+      /* Booking card */
+      .booking-card { margin: 0 12px; top: -28px; }
+      .booking-tabs { overflow-x: auto; }
+      .tab-btn { font-size: 13px; padding: 12px 10px; white-space: nowrap; }
+      .tab-panel { padding: 20px 16px; }
+      .trip-type-row { flex-wrap: wrap; gap: 12px; }
+
+      /* About */
+      .about-inner { grid-template-columns: 1fr; gap: 28px; }
+      .about-img img { height: 240px; }
+
+      /* Why grid */
+      .why-grid { grid-template-columns: 1fr; gap: 16px; }
+      .why-card { padding: 24px 20px; }
+
+      /* Destinations */
+      .dest-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .dest-card { padding: 16px 14px; }
+      .dest-card h2 { font-size: 13px; }
+      .dest-link { font-size: 11px; padding: 3px 8px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      /* Header compact */
+      .header-inner { padding: 10px 14px; }
+      .header-logo img { height: 38px; }
+      .btn-book { padding: 8px 16px; font-size: 13px; }
+
+      /* Nav */
+      .nav-links { display: none; flex-direction: column; gap: 0; }
       .nav-links.open {
         display: flex;
         position: absolute;
-        top: 72px; left: 0; right: 0;
+        top: 60px; left: 0; right: 0;
         background: var(--dark-1);
-        padding: 20px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        padding: 8px 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        z-index: 99;
+      }
+      .nav-links.open a {
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        opacity: 1;
+        font-size: 15px;
       }
       .nav-toggle { display: block; }
-      .form-grid { grid-template-columns: 1fr; }
+
+      /* Forms */
+      .form-grid { grid-template-columns: 1fr; gap: 12px; }
       .form-group.span2 { grid-column: span 1; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
+      .tab-panel { padding: 16px 14px; }
+
+      /* Destinations single col on very small */
       .dest-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Footer single col */
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom-links { justify-content: center; }
+
+      /* CTA */
+      .cta-section { padding: 48px 16px; }
+      .cta-section h4 { font-size: 22px; }
+
+      /* Why section */
+      .why-section { padding: 56px 0; }
+      .about-section { padding: 56px 0; }
+      .destinations-section { padding: 56px 0; }
     }
   </style>
 </head>
@@ -532,9 +602,7 @@
         <a href="contact.html">Contact</a>
       </nav>
       <div class="header-cta">
-        <a href="tel:9786457475" class="header-phone">
-          <i class="bi bi-telephone-fill"></i> +(91) 9786457475
-        </a>
+        <div class="header-phones"><a href="tel:9786457475" class="header-phone"><i class="bi bi-telephone-fill"></i> 9786457475</a><a href="tel:9585580518" class="header-phone"><i class="bi bi-telephone-fill"></i> 9585580518</a></div>
         <a href="#booking" class="btn-book">Book Now</a>
       </div>
     </div>
@@ -681,9 +749,7 @@
           <p>We take pride in our fleet of well-maintained vehicles and professional drivers who ensure your safety and comfort throughout your journey.</p>
           <div style="display:flex;gap:16px;margin-top:24px;flex-wrap:wrap;">
             <a href="about.html" class="btn-book" style="background:var(--primary);color:white;padding:12px 28px;border-radius:8px;font-weight:600;">Learn More</a>
-            <a href="tel:9786457475" class="btn-book" style="background:var(--light-2);color:var(--dark-1);padding:12px 28px;border-radius:8px;font-weight:600;">
-              <i class="bi bi-telephone"></i> Call Us
-            </a>
+            <a href="tel:9786457475" class="btn-book" style="background:var(--light-2);color:var(--dark-1);padding:12px 28px;border-radius:8px;font-weight:600;"><i class="bi bi-telephone"></i> 9786457475</a><a href="tel:9585580518" class="btn-book" style="background:var(--light-2);color:var(--dark-1);padding:12px 28px;border-radius:8px;font-weight:600;"><i class="bi bi-telephone"></i> 9585580518</a>
           </div>
         </div>
       </div>
@@ -734,9 +800,7 @@
   <section class="cta-section">
     <h4>Still Looking for Drop Taxi Service?</h4>
     <p>Still searching for reliable drop taxi service? Choose Aadhvik Travels for safe, affordable, and hassle-free rides!</p>
-    <a href="tel:9786457475" class="btn-cta">
-      <i class="bi bi-telephone-fill"></i> (+91) 9786457475
-    </a>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;"><a href="tel:9786457475" class="btn-cta"><i class="bi bi-telephone-fill"></i> 9786457475</a><a href="tel:9585580518" class="btn-cta"><i class="bi bi-telephone-fill"></i> 9585580518</a></div>
   </section>
 
   <!-- FOOTER -->
@@ -747,6 +811,7 @@
         <p>Reliable drop taxi and one-way taxi services across Tamil Nadu, Pondicherry &amp; Bangalore. Your comfort, our commitment.</p>
         <div class="footer-contact">
           <a href="tel:9786457475"><i class="bi bi-telephone-fill"></i> (+91) 9786457475</a>
+          <a href="tel:9585580518"><i class="bi bi-telephone-fill"></i> (+91) 9585580518</a>
           <a href="mailto:aadhviktravelsmdu@gmail.com"><i class="bi bi-envelope-fill"></i> aadhviktravelsmdu@gmail.com</a>
         </div>
       </div>
@@ -764,20 +829,21 @@
       <div class="footer-col">
         <h5>Drop Taxi Cities</h5>
         <ul class="footer-cities">
-          <li><a href="https://ariyalur.dropmeoneway.com/">Ariyalur</a></li>
-          <li><a href="https://chennai.dropmeoneway.com/">Chennai</a></li>
-          <li><a href="https://coimbatore.dropmeoneway.com/">Coimbatore</a></li>
-          <li><a href="https://madurai.dropmeoneway.com/">Madurai</a></li>
-          <li><a href="https://salem.dropmeoneway.com/">Salem</a></li>
-          <li><a href="https://trichy.dropmeoneway.com/">Trichy</a></li>
-          <li><a href="https://vellore.dropmeoneway.com/">Vellore</a></li>
-          <li><a href="https://tirunelveli.dropmeoneway.com/">Tirunelveli</a></li>
+          <li><a href="city/chennai-to-ariyalur-taxi.html">Ariyalur</a></li>
+          <li><a href="city/chennai-to-madurai-taxi.html">Chennai</a></li>
+          <li><a href="city/coimbatore-to-chennai-taxi.html">Coimbatore</a></li>
+          <li><a href="city/madurai-to-chennai-taxi.html">Madurai</a></li>
+          <li><a href="city/salem-to-chennai-taxi.html">Salem</a></li>
+          <li><a href="city/chennai-to-trichy-taxi.html">Trichy</a></li>
+          <li><a href="city/chennai-to-vellore-taxi.html">Vellore</a></li>
+          <li><a href="city/chennai-to-tirunelveli-taxi.html">Tirunelveli</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Mobile</h5>
         <ul>
           <li><a href="tel:9786457475">(+91) 9786457475</a></li>
+          <li><a href="tel:9585580518">(+91) 9585580518</a></li>
         </ul>
         <img src="assets/payment.png" alt="Payment Options" style="margin-top:20px;max-width:160px;border-radius:8px;">
       </div>
@@ -875,55 +941,59 @@
     }
 
     // Generate destination cards
+    // Every city now has its own route page
     const cities = [
-      { name: 'Ariyalur', url: 'https://ariyalur.dropmeoneway.com/' },
-      { name: 'Chengalpattu', url: 'https://chengalpattu.dropmeoneway.com/' },
-      { name: 'Chennai', url: 'https://chennai.dropmeoneway.com/' },
-      { name: 'Coimbatore', url: 'https://coimbatore.dropmeoneway.com/' },
-      { name: 'Cuddalore', url: 'https://cuddalore.dropmeoneway.com/' },
-      { name: 'Dharmapuri', url: 'https://dharmapuri.dropmeoneway.com/' },
-      { name: 'Dindigul', url: 'https://dindigul.dropmeoneway.com/' },
-      { name: 'Kanchipuram', url: 'https://kanchipuram.dropmeoneway.com/' },
-      { name: 'Kanyakumari', url: 'https://kanyakumari.dropmeoneway.com/' },
-      { name: 'Karur', url: 'https://karur.dropmeoneway.com/' },
-      { name: 'Krishnagiri', url: 'https://krishnagiri.dropmeoneway.com/' },
-      { name: 'Madurai', url: 'https://madurai.dropmeoneway.com/' },
-      { name: 'Nagapattinam', url: 'https://nagapattinam.dropmeoneway.com/' },
-      { name: 'Namakkal', url: 'https://namakkal.dropmeoneway.com/' },
-      { name: 'Perambalur', url: 'https://perambalur.dropmeoneway.com/' },
-      { name: 'Pudukkottai', url: 'https://pudukkottai.dropmeoneway.com/' },
-      { name: 'Ramanathapuram', url: 'https://ramanathapuram.dropmeoneway.com/' },
-      { name: 'Salem', url: 'https://salem.dropmeoneway.com/' },
-      { name: 'Sivaganga', url: 'https://sivaganga.dropmeoneway.com/' },
-      { name: 'Thanjavur', url: 'https://thanjavur.dropmeoneway.com/' },
-      { name: 'Theni', url: 'https://theni.dropmeoneway.com/' },
-      { name: 'Nilgiris (Ooty)', url: 'https://nilgiris.dropmeoneway.com/' },
-      { name: 'Thiruvallur', url: 'https://thiruvallur.dropmeoneway.com/' },
-      { name: 'Thiruvarur', url: 'https://thiruvarur.dropmeoneway.com/' },
-      { name: 'Thoothukudi', url: 'https://thoothukkudi.dropmeoneway.com/' },
-      { name: 'Trichy', url: 'https://trichy.dropmeoneway.com/' },
-      { name: 'Tirunelveli', url: 'https://tirunelveli.dropmeoneway.com/' },
-      { name: 'Tiruppur', url: 'https://tiruppur.dropmeoneway.com/' },
-      { name: 'Tiruvannamalai', url: 'https://tiruvannamalai.dropmeoneway.com/' },
-      { name: 'Vellore', url: 'https://vellore.dropmeoneway.com/' },
-      { name: 'Viluppuram', url: 'https://viluppuram.dropmeoneway.com/' },
-      { name: 'Virudhunagar', url: 'https://virudhunagar.dropmeoneway.com/' },
-      { name: 'Bangalore', url: 'https://bangalore.dropmeoneway.com/' },
-      { name: 'Tirupati', url: 'https://tirupati.dropmeoneway.com/' },
-      { name: 'Pondicherry', url: 'https://pondicherry.dropmeoneway.com/' },
-      { name: 'Ranipet', url: 'https://ranipet.dropmeoneway.com/' },
-      { name: 'Tenkasi', url: 'https://tenkasi.dropmeoneway.com/' },
-      { name: 'Erode', url: 'https://erode.dropmeoneway.com/' },
-      { name: 'Kallakurichi', url: 'https://kallakurichi.dropmeoneway.com/' },
+      { name: 'Ariyalur',        route: 'city/chennai-to-ariyalur-taxi.html' },
+      { name: 'Chengalpattu',    route: 'city/chennai-to-chengalpattu-taxi.html' },
+      { name: 'Chennai',         route: 'city/chennai-to-madurai-taxi.html' },
+      { name: 'Coimbatore',      route: 'city/coimbatore-to-chennai-taxi.html' },
+      { name: 'Cuddalore',       route: 'city/chennai-to-cuddalore-taxi.html' },
+      { name: 'Dharmapuri',      route: 'city/chennai-to-dharmapuri-taxi.html' },
+      { name: 'Dindigul',        route: 'city/chennai-to-dindigul-taxi.html' },
+      { name: 'Kanchipuram',     route: 'city/chennai-to-kanchipuram-taxi.html' },
+      { name: 'Kanyakumari',     route: 'city/madurai-to-kanyakumari-taxi.html' },
+      { name: 'Karur',           route: 'city/chennai-to-karur-taxi.html' },
+      { name: 'Krishnagiri',     route: 'city/chennai-to-krishnagiri-taxi.html' },
+      { name: 'Madurai',         route: 'city/madurai-to-chennai-taxi.html' },
+      { name: 'Nagapattinam',    route: 'city/chennai-to-nagapattinam-taxi.html' },
+      { name: 'Namakkal',        route: 'city/chennai-to-namakkal-taxi.html' },
+      { name: 'Perambalur',      route: 'city/chennai-to-perambalur-taxi.html' },
+      { name: 'Pudukkottai',     route: 'city/chennai-to-pudukkottai-taxi.html' },
+      { name: 'Ramanathapuram',  route: 'city/chennai-to-ramanathapuram-taxi.html' },
+      { name: 'Salem',           route: 'city/salem-to-chennai-taxi.html' },
+      { name: 'Sivaganga',       route: 'city/chennai-to-sivaganga-taxi.html' },
+      { name: 'Thanjavur',       route: 'city/chennai-to-thanjavur-taxi.html' },
+      { name: 'Theni',           route: 'city/chennai-to-theni-taxi.html' },
+      { name: 'Nilgiris (Ooty)', route: 'city/chennai-to-ooty-taxi.html' },
+      { name: 'Thiruvallur',     route: 'city/chennai-to-thiruvallur-taxi.html' },
+      { name: 'Thiruvarur',      route: 'city/chennai-to-thiruvarur-taxi.html' },
+      { name: 'Thoothukudi',     route: 'city/chennai-to-thoothukudi-taxi.html' },
+      { name: 'Trichy',          route: 'city/chennai-to-trichy-taxi.html' },
+      { name: 'Tirunelveli',     route: 'city/chennai-to-tirunelveli-taxi.html' },
+      { name: 'Tiruppur',        route: 'city/chennai-to-tiruppur-taxi.html' },
+      { name: 'Tiruvannamalai',  route: 'city/chennai-to-tiruvannamalai-taxi.html' },
+      { name: 'Vellore',         route: 'city/chennai-to-vellore-taxi.html' },
+      { name: 'Viluppuram',      route: 'city/chennai-to-viluppuram-taxi.html' },
+      { name: 'Virudhunagar',    route: 'city/chennai-to-virudhunagar-taxi.html' },
+      { name: 'Bangalore',       route: 'city/chennai-to-bangalore-taxi.html' },
+      { name: 'Tirupati',        route: 'city/chennai-to-tirupati-taxi.html' },
+      { name: 'Pondicherry',     route: 'city/chennai-to-pondicherry-taxi.html' },
+      { name: 'Ranipet',         route: 'city/chennai-to-ranipet-taxi.html' },
+      { name: 'Tenkasi',         route: 'city/chennai-to-tenkasi-taxi.html' },
+      { name: 'Erode',           route: 'city/chennai-to-erode-taxi.html' },
+      { name: 'Kallakurichi',    route: 'city/chennai-to-kallakurichi-taxi.html' },
     ];
 
     const grid = document.querySelector('.dest-grid');
     cities.forEach(city => {
+      const routeBtn = city.route
+        ? `<a href="${city.route}" class="dest-link">Cab Routes</a>`
+        : `<a href="tariff.html" class="dest-link">Cab Routes</a>`;
       grid.innerHTML += `
         <div class="dest-card">
           <h2>${city.name} Drop Taxi</h2>
           <div class="dest-links">
-            <a href="city/chennai-to-${city.name.toLowerCase().replace(/\s+/g,'-')}-taxi.html" class="dest-link">Cab routes</a>
+            ${routeBtn}
             <a href="tariff.html" class="dest-link">Trip Fare</a>
             <a href="#booking" class="dest-link">Book Now</a>
           </div>
