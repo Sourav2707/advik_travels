@@ -4,10 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Drop Taxi Services Across Tamil Nadu - Chennai &amp; Salem | Aadhvik Travels</title>
-  <meta name="description" content="Aadhvik Travels offers reliable and affordable drop taxi services across Tamil Nadu. With main locations in Chennai and Salem, book your one-way taxi today for a comfortable journey!">
-  <meta name="keywords" content="drop taxi, one-way taxi, drop taxi Tamil Nadu, taxi service Chennai, taxi service Salem, affordable taxi Tamil Nadu, Aadhvik Travels">
+  <title>Aadhvik Drop Taxi | Aadhvik Travels | Drop Taxi Tamil Nadu</title>
+  <meta name="description" content="Aadhvik Travels - Aadhvik Drop Taxi service across Tamil Nadu. Affordable one-way drop taxi from Chennai, Salem, Madurai, Coimbatore & more. Call +91 9786457475.">
+  <meta name="keywords" content="aadhvik drop taxi, aadhvik travels, aadhvikdroptaxi, aadhvik taxi, drop taxi Tamil Nadu, one way taxi Tamil Nadu, drop taxi Chennai, drop taxi Salem">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aadhvikdroptaxi.com/">
+
+  <!-- Open Graph (WhatsApp / Facebook previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aadhvikdroptaxi.com/">
+  <meta property="og:title" content="Aadhvik Drop Taxi | Aadhvik Travels">
+  <meta property="og:description" content="Reliable drop taxi & one-way cab service across Tamil Nadu. Book now via WhatsApp!">
+  <meta property="og:image" content="https://aadhvikdroptaxi.com/assets/new_logo.png">
+  <meta property="og:site_name" content="Aadhvik Travels">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Aadhvik Drop Taxi | Aadhvik Travels">
+  <meta name="twitter:description" content="Reliable drop taxi across Tamil Nadu. Book via WhatsApp!">
+
+  <!-- Schema.org LocalBusiness structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Aadhvik Travels",
+    "alternateName": ["Aadhvik Drop Taxi", "Aadhvikdroptaxi"],
+    "url": "https://aadhvikdroptaxi.com",
+    "logo": "https://aadhvikdroptaxi.com/assets/new_logo.png",
+    "image": "https://aadhvikdroptaxi.com/assets/new_logo.png",
+    "description": "Aadhvik Travels provides affordable drop taxi and one-way cab services across Tamil Nadu, Pondicherry and Bangalore.",
+    "telephone": ["+919786457475", "+919585580518"],
+    "email": "aadhviktravelsmdu@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    },
+    "areaServed": "Tamil Nadu",
+    "serviceType": "Drop Taxi, One Way Taxi, Outstation Cab",
+    "priceRange": "₹₹",
+    "openingHours": "Mo-Su 00:00-23:59",
+    "sameAs": [
+      "https://aadhvikdroptaxi.com",
+      "https://wa.me/919786457475"
+    ]
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,6 +152,33 @@
       cursor: pointer;
       padding: 4px;
     }
+
+    /* Autocomplete suggestion box */
+    .suggest-box {
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: white;
+      border: 1.5px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 8px 24px rgba(5,16,54,0.12);
+      z-index: 200;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+    .suggest-item {
+      padding: 10px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .suggest-item:hover { background: #eef1fc; }
+    .suggest-item:last-child { border-bottom: none; }
+    .suggest-item i { color: var(--primary); flex-shrink: 0; }
 
     /* ===== HERO ===== */
     .hero {
@@ -640,10 +710,10 @@
         <div class="tab-panel active" id="tab-outstation">
           <div class="trip-type-row">
             <label class="radio-label">
-              <input type="radio" name="tripType" value="oneway" checked> One Way
+              <input type="radio" name="tripType" value="oneway" checked onchange="recalcOutstation()"> One Way
             </label>
             <label class="radio-label">
-              <input type="radio" name="tripType" value="roundtrip"> Round Trip
+              <input type="radio" name="tripType" value="roundtrip" onchange="recalcOutstation()"> Round Trip
             </label>
           </div>
           <div class="form-grid">
@@ -658,13 +728,15 @@
                 <input type="tel" class="phone-input" placeholder="Mobile Number" id="mobile" maxlength="10">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="position:relative;">
               <label class="form-label">From Address</label>
-              <input type="text" class="form-control" placeholder="Type Airport Name/Road/Area" id="fromAddress">
+              <input type="text" class="form-control" placeholder="Type city or area..." id="fromAddress" autocomplete="off" oninput="suggest('from',this.value)">
+              <div class="suggest-box" id="suggest-from"></div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="position:relative;">
               <label class="form-label">To Address</label>
-              <input type="text" class="form-control" placeholder="Type Airport Name/Road/Area" id="toAddress">
+              <input type="text" class="form-control" placeholder="Type city or area..." id="toAddress" autocomplete="off" oninput="suggest('to',this.value)">
+              <div class="suggest-box" id="suggest-to"></div>
             </div>
             <div class="form-group">
               <label class="form-label">Pick-Up Date</label>
@@ -676,19 +748,47 @@
             </div>
             <div class="form-group span2">
               <label class="form-label">Select Vehicle Type</label>
-              <select class="form-control" id="vehicleType">
+              <select class="form-control" id="vehicleType" onchange="recalcOutstation()">
                 <option value="">-- Select vehicle type --</option>
                 <option value="sedan">Sedan (Dzire / Etios)</option>
                 <option value="suv">SUV (Innova / Xylo)</option>
-                <option value="luxury">Luxury (Innova Crysta)</option>
-                <option value="prime-play">Prime Play</option>
-                <option value="prime-suv">Prime SUV</option>
+                <option value="crysta">Innova Crysta (Luxury)</option>
               </select>
             </div>
           </div>
-          <button class="btn-primary" onclick="submitBooking()">
-            <i class="bi bi-whatsapp"></i> &nbsp;Book via WhatsApp
-          </button>
+
+          <!-- Distance + Estimate Result -->
+          <div id="est-outstation" style="display:none;background:#eef1fc;border:1.5px solid #3554D1;border-radius:10px;padding:16px 20px;margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <i class="bi bi-calculator-fill" style="color:#3554D1;font-size:20px;"></i>
+              <strong style="font-size:15px;color:#051036;">Fare Estimate</strong>
+              <span id="est-loading" style="font-size:13px;color:#697488;display:none;">Calculating...</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" id="est-details">
+              <div style="text-align:center;background:white;border-radius:8px;padding:10px;">
+                <div style="font-size:11px;color:#697488;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Distance</div>
+                <div style="font-size:18px;font-weight:700;color:#051036;" id="est-km">—</div>
+              </div>
+              <div style="text-align:center;background:white;border-radius:8px;padding:10px;">
+                <div style="font-size:11px;color:#697488;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Est. Fare</div>
+                <div style="font-size:18px;font-weight:700;color:#3554D1;" id="est-fare">—</div>
+              </div>
+              <div style="text-align:center;background:white;border-radius:8px;padding:10px;">
+                <div style="font-size:11px;color:#697488;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Driver Batta</div>
+                <div style="font-size:18px;font-weight:700;color:#051036;" id="est-batta">—</div>
+              </div>
+            </div>
+            <p style="font-size:11px;color:#697488;margin-top:10px;">* Toll charges extra. Batta ₹400/day for trips &gt;300 km.</p>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn-primary" style="flex:1;min-width:160px;" onclick="calcOutstation()">
+              <i class="bi bi-calculator"></i> &nbsp;Calculate Fare
+            </button>
+            <button class="btn-primary" style="flex:1;min-width:160px;background:#25D366;" onclick="submitBooking()">
+              <i class="bi bi-whatsapp"></i> &nbsp;Book via WhatsApp
+            </button>
+          </div>
         </div>
 
         <!-- Rental Tab -->
@@ -705,17 +805,36 @@
                 <input type="tel" class="phone-input" placeholder="Mobile Number" id="rMobile" maxlength="10">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="position:relative;">
               <label class="form-label">Pickup Location</label>
-              <input type="text" class="form-control" placeholder="Type Airport Name/Road/Area" id="rFrom">
+              <input type="text" class="form-control" placeholder="Type city or area..." id="rFrom" autocomplete="off" oninput="suggest('rfrom',this.value)">
+              <div class="suggest-box" id="suggest-rfrom"></div>
+            </div>
+            <div class="form-group" style="position:relative;">
+              <label class="form-label">Drop Location</label>
+              <input type="text" class="form-control" placeholder="Type city or area..." id="rTo" autocomplete="off" oninput="suggest('rto',this.value)">
+              <div class="suggest-box" id="suggest-rto"></div>
             </div>
             <div class="form-group">
-              <label class="form-label">Rental Hours</label>
-              <select class="form-control" id="rentalHours">
-                <option value="">-- Select hours --</option>
-                <option>4 Hours / 40 KM</option>
-                <option>8 Hours / 80 KM</option>
-                <option>12 Hours / 120 KM</option>
+              <label class="form-label">Rental Days</label>
+              <select class="form-control" id="rentalDays" onchange="recalcRental()">
+                <option value="">-- Select days --</option>
+                <option value="1">1 Day</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+                <option value="5">5 Days</option>
+                <option value="6">6 Days</option>
+                <option value="7">7 Days</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Vehicle Type</label>
+              <select class="form-control" id="rVehicleType" onchange="recalcRental()">
+                <option value="">-- Select vehicle --</option>
+                <option value="sedan">Sedan (Dzire / Etios)</option>
+                <option value="suv">SUV (Innova / Xylo)</option>
+                <option value="crysta">Innova Crysta (Luxury)</option>
               </select>
             </div>
             <div class="form-group">
@@ -727,9 +846,47 @@
               <input type="time" class="form-control" id="rPickupTime">
             </div>
           </div>
-          <button class="btn-primary" onclick="submitRentalBooking()">
-            <i class="bi bi-whatsapp"></i> &nbsp;Book via WhatsApp
-          </button>
+
+          <!-- Rental Estimate -->
+          <div id="est-rental" style="display:none;background:#eef1fc;border:1.5px solid #3554D1;border-radius:10px;padding:16px 20px;margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <i class="bi bi-calculator-fill" style="color:#3554D1;font-size:20px;"></i>
+              <strong style="font-size:15px;color:#051036;">Rental Fare Estimate</strong>
+              <span id="r-est-loading" style="font-size:13px;color:#697488;display:none;">Calculating...</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" id="r-est-grid">
+              <div style="text-align:center;background:white;border-radius:8px;padding:10px;">
+                <div style="font-size:11px;color:#697488;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Distance</div>
+                <div style="font-size:18px;font-weight:700;color:#051036;" id="r-est-km">—</div>
+              </div>
+              <div style="text-align:center;background:white;border-radius:8px;padding:10px;">
+                <div style="font-size:11px;color:#697488;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Base Rent</div>
+                <div style="font-size:18px;font-weight:700;color:#051036;" id="r-est-rent">—</div>
+              </div>
+              <div style="text-align:center;background:white;border-radius:8px;padding:10px;">
+                <div style="font-size:11px;color:#697488;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">KM Charge</div>
+                <div style="font-size:18px;font-weight:700;color:#051036;" id="r-est-fare">—</div>
+              </div>
+              <div style="text-align:center;background:white;border-radius:8px;padding:10px;">
+                <div style="font-size:11px;color:#697488;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Driver Batta</div>
+                <div style="font-size:18px;font-weight:700;color:#051036;" id="r-est-batta">—</div>
+              </div>
+            </div>
+            <div style="margin-top:12px;background:#3554D1;color:white;border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:12px;opacity:.8;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Total Estimate</div>
+              <div style="font-size:22px;font-weight:700;" id="r-est-total">—</div>
+            </div>
+            <p style="font-size:11px;color:#697488;margin-top:10px;">* Toll charges, parking & fuel extra. Batta ₹400/day included above.</p>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn-primary" style="flex:1;min-width:160px;" onclick="calcRental()">
+              <i class="bi bi-calculator"></i> &nbsp;Calculate Fare
+            </button>
+            <button class="btn-primary" style="flex:1;min-width:160px;background:#25D366;" onclick="submitRentalBooking()">
+              <i class="bi bi-whatsapp"></i> &nbsp;Book via WhatsApp
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -829,7 +986,7 @@
       <div class="footer-col">
         <h5>Drop Taxi Cities</h5>
         <ul class="footer-cities">
-          <li><a href="city/chennai-to-ariyalur-taxi.html">Ariyalur</a></li>
+          <li><a href="city/ariyalur-drop-taxi.html">Ariyalur</a></li>
           <li><a href="city/chennai-to-madurai-taxi.html">Chennai</a></li>
           <li><a href="city/coimbatore-to-chennai-taxi.html">Coimbatore</a></li>
           <li><a href="city/madurai-to-chennai-taxi.html">Madurai</a></li>
@@ -864,18 +1021,35 @@
   </a>
 
   <script>
-    // Set today's date and time defaults
+    // ── Date/time defaults ──────────────────────────────────────────────────
     const now = new Date();
-    const date = now.toISOString().split('T')[0];
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const time = `${hours}:${minutes}`;
-    document.getElementById('pickupDate').value = date;
-    document.getElementById('pickupTime').value = time;
-    document.getElementById('rPickupDate').value = date;
-    document.getElementById('rPickupTime').value = time;
+    const todayStr = now.toISOString().split('T')[0];
+    const hh = String(now.getHours()).padStart(2,'0');
+    const mm = String(now.getMinutes()).padStart(2,'0');
+    const timeStr = `${hh}:${mm}`;
+    document.getElementById('pickupDate').value = todayStr;
+    document.getElementById('pickupTime').value = timeStr;
+    document.getElementById('rPickupDate').value = todayStr;
+    document.getElementById('rPickupTime').value = timeStr;
 
-    // Tab switching
+    // ── Outstation Rates (₹/km) ──────────────────────────────────────────────
+    const RATES = {
+      sedan:  { oneway: 14, roundtrip: 13 },
+      suv:    { oneway: 18, roundtrip: 19 },
+      crysta: { oneway: 22, roundtrip: 23 },
+    };
+
+    // ── Rental Rates (base rent/day + ₹/km) ─────────────────────────────────
+    const RENTAL_RATES = {
+      sedan:  { rentPerDay: 1400, kmRate: 12 },
+      suv:    { rentPerDay: 2000, kmRate: 11 },
+      crysta: { rentPerDay: 2500, kmRate: 15 },
+    };
+
+    const BATTA_PER_DAY = 400;
+    const BATTA_THRESHOLD_KM = 300;
+
+    // ── Tab switching ────────────────────────────────────────────────────────
     function switchTab(tab, btn) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -883,60 +1057,230 @@
       document.getElementById('tab-' + tab).classList.add('active');
     }
 
-    // Mobile nav toggle
+    // ── Mobile nav ───────────────────────────────────────────────────────────
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');
     });
 
-    // WhatsApp booking submission
-    function submitBooking() {
-      const name = document.getElementById('nameField').value.trim();
-      const mobile = document.getElementById('mobile').value.trim();
-      const from = document.getElementById('fromAddress').value.trim();
-      const to = document.getElementById('toAddress').value.trim();
-      const pDate = document.getElementById('pickupDate').value;
-      const pTime = document.getElementById('pickupTime').value;
+    // ── Geocoding store (lat/lon per field) ──────────────────────────────────
+    const geoStore = {};
+    let suggestTimers = {};
+
+    async function suggest(field, query) {
+      clearTimeout(suggestTimers[field]);
+      const box = document.getElementById('suggest-' + field);
+      if (!query || query.length < 3) { box.innerHTML = ''; return; }
+      suggestTimers[field] = setTimeout(async () => {
+        try {
+          const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query+', India')}&format=json&limit=6&addressdetails=0`;
+          const res = await fetch(url, { headers: { 'Accept-Language': 'en' } });
+          const data = await res.json();
+          box.innerHTML = '';
+          data.forEach(place => {
+            const div = document.createElement('div');
+            div.className = 'suggest-item';
+            // Shorten display name
+            const parts = place.display_name.split(',');
+            const short = parts.slice(0,3).join(',').trim();
+            div.innerHTML = `<i class="bi bi-geo-alt"></i><span>${short}</span>`;
+            div.addEventListener('click', () => {
+              const inputId = field === 'from' ? 'fromAddress' : field === 'to' ? 'toAddress' : field === 'rfrom' ? 'rFrom' : 'rTo';
+              document.getElementById(inputId).value = short;
+              geoStore[field] = { lat: parseFloat(place.lat), lon: parseFloat(place.lon), name: short };
+              box.innerHTML = '';
+            });
+            box.appendChild(div);
+          });
+        } catch(e) { box.innerHTML = ''; }
+      }, 400);
+    }
+
+    // Close suggestions on outside click
+    document.addEventListener('click', e => {
+      document.querySelectorAll('.suggest-box').forEach(b => {
+        if (!b.contains(e.target)) b.innerHTML = '';
+      });
+    });
+
+    // ── Get coords for a place (geocode if not already cached) ──────────────
+    async function getCoords(field, value) {
+      if (geoStore[field]) return geoStore[field];
+      const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(value+', India')}&format=json&limit=1`;
+      const res = await fetch(url, { headers: { 'Accept-Language': 'en' } });
+      const data = await res.json();
+      if (!data.length) return null;
+      const coords = { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), name: value };
+      geoStore[field] = coords;
+      return coords;
+    }
+
+    // ── Get driving distance via OSRM (free, no key) ─────────────────────────
+    async function getDrivingKm(fromCoords, toCoords) {
+      const url = `https://router.project-osrm.org/route/v1/driving/${fromCoords.lon},${fromCoords.lat};${toCoords.lon},${toCoords.lat}?overview=false`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.code !== 'Ok' || !data.routes.length) return null;
+      return Math.round(data.routes[0].distance / 1000); // metres → km
+    }
+
+    // ── Fare calculation helper ──────────────────────────────────────────────
+    function calcFare(km, vehicleKey, tripType, days) {
+      if (!RATES[vehicleKey]) return null;
+      const rate = RATES[vehicleKey][tripType] || RATES[vehicleKey].oneway;
+      const distKm = tripType === 'roundtrip' ? km * 2 : km;
+      const fareBase = distKm * rate;
+      const battaDays = days || (km >= BATTA_THRESHOLD_KM ? 1 : 0);
+      const batta = battaDays * BATTA_PER_DAY;
+      return { fare: Math.round(fareBase), batta, total: Math.round(fareBase + batta), km: distKm };
+    }
+
+    // ── Outstation: Calculate ────────────────────────────────────────────────
+    async function calcOutstation() {
+      const fromVal = document.getElementById('fromAddress').value.trim();
+      const toVal   = document.getElementById('toAddress').value.trim();
       const vehicle = document.getElementById('vehicleType').value;
       const tripType = document.querySelector('input[name="tripType"]:checked').value;
 
-      if (!name || !mobile || !from || !to) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-      if (!/^\d{10}$/.test(mobile)) {
-        alert('Please enter a valid 10-digit mobile number.');
-        return;
-      }
+      if (!fromVal || !toVal) { alert('Please enter both From and To addresses.'); return; }
+      if (!vehicle) { alert('Please select a vehicle type.'); return; }
 
+      const estBox = document.getElementById('est-outstation');
+      const loading = document.getElementById('est-loading');
+      estBox.style.display = 'block';
+      loading.style.display = 'inline';
+      document.getElementById('est-km').textContent = '...';
+      document.getElementById('est-fare').textContent = '...';
+      document.getElementById('est-batta').textContent = '...';
+
+      try {
+        const [fromC, toC] = await Promise.all([
+          getCoords('from', fromVal),
+          getCoords('to', toVal)
+        ]);
+        if (!fromC || !toC) { alert('Could not find one of the locations. Please be more specific.'); loading.style.display='none'; return; }
+        const km = await getDrivingKm(fromC, toC);
+        if (!km) { alert('Could not calculate distance. Please try again.'); loading.style.display='none'; return; }
+
+        const days = km >= BATTA_THRESHOLD_KM ? 1 : 0;
+        const result = calcFare(km, vehicle, tripType, days);
+
+        document.getElementById('est-km').textContent = `${km} km`;
+        document.getElementById('est-fare').textContent = `₹${result.fare.toLocaleString('en-IN')}`;
+        document.getElementById('est-batta').textContent = result.batta > 0 ? `₹${result.batta}` : '₹0';
+      } catch(e) {
+        alert('Something went wrong. Please check your connection and try again.');
+      }
+      loading.style.display = 'none';
+    }
+
+    function recalcOutstation() {
+      // Auto-recalc if estimate already shown
+      if (document.getElementById('est-outstation').style.display !== 'none' &&
+          document.getElementById('est-km').textContent !== '—') {
+        calcOutstation();
+      }
+    }
+
+    // ── Rental: Calculate ────────────────────────────────────────────────────
+    async function calcRental() {
+      const fromVal  = document.getElementById('rFrom').value.trim();
+      const toVal    = document.getElementById('rTo').value.trim();
+      const days     = parseInt(document.getElementById('rentalDays').value);
+      const vehicle  = document.getElementById('rVehicleType').value;
+
+      if (!fromVal || !toVal) { alert('Please enter both Pickup and Drop locations.'); return; }
+      if (!days) { alert('Please select rental days.'); return; }
+      if (!vehicle) { alert('Please select a vehicle type.'); return; }
+
+      const estBox  = document.getElementById('est-rental');
+      const loading = document.getElementById('r-est-loading');
+      estBox.style.display = 'block';
+      loading.style.display = 'inline';
+      ['r-est-km','r-est-rent','r-est-fare','r-est-batta','r-est-total'].forEach(id => {
+        document.getElementById(id).textContent = '...';
+      });
+
+      try {
+        const [fromC, toC] = await Promise.all([
+          getCoords('rfrom', fromVal),
+          getCoords('rto', toVal)
+        ]);
+        if (!fromC || !toC) { alert('Could not find one of the locations. Please be more specific.'); loading.style.display='none'; return; }
+        const km = await getDrivingKm(fromC, toC);
+        if (!km) { alert('Could not calculate distance. Please try again.'); loading.style.display='none'; return; }
+
+        const r = RENTAL_RATES[vehicle];
+        const baseRent  = r.rentPerDay * days;
+        const kmCharge  = km * r.kmRate;
+        const batta     = BATTA_PER_DAY * days;
+        const total     = baseRent + kmCharge + batta;
+
+        document.getElementById('r-est-km').textContent    = `${km} km`;
+        document.getElementById('r-est-rent').textContent  = `₹${baseRent.toLocaleString('en-IN')}`;
+        document.getElementById('r-est-fare').textContent  = `₹${kmCharge.toLocaleString('en-IN')}`;
+        document.getElementById('r-est-batta').textContent = `₹${batta.toLocaleString('en-IN')}`;
+        document.getElementById('r-est-total').textContent = `₹${total.toLocaleString('en-IN')}`;
+      } catch(e) {
+        alert('Something went wrong. Please check your connection and try again.');
+      }
+      loading.style.display = 'none';
+    }
+
+    function recalcRental() {
+      if (document.getElementById('est-rental').style.display !== 'none' &&
+          document.getElementById('r-est-km').textContent !== '—') {
+        calcRental();
+      }
+    }
+
+    // ── Outstation WhatsApp submit ────────────────────────────────────────────
+    function submitBooking() {
+      const name     = document.getElementById('nameField').value.trim();
+      const mobile   = document.getElementById('mobile').value.trim();
+      const from     = document.getElementById('fromAddress').value.trim();
+      const to       = document.getElementById('toAddress').value.trim();
+      const pDate    = document.getElementById('pickupDate').value;
+      const pTime    = document.getElementById('pickupTime').value;
+      const vehicle  = document.getElementById('vehicleType').value;
+      const tripType = document.querySelector('input[name="tripType"]:checked').value;
+      const estKm    = document.getElementById('est-km').textContent;
+      const estFare  = document.getElementById('est-fare').textContent;
+      const estBatta = document.getElementById('est-batta').textContent;
+
+      if (!name || !mobile || !from || !to) { alert('Please fill in all required fields.'); return; }
+      if (!/^\d{10}$/.test(mobile)) { alert('Please enter a valid 10-digit mobile number.'); return; }
+
+      const fareInfo = estFare !== '—' ? `\n*Distance:* ${estKm}\n*Est. Fare:* ${estFare}\n*Driver Batta:* ${estBatta}` : '';
       const msg = `Hi Aadhvik Travels! I'd like to book a cab.\n\n` +
         `*Name:* ${name}\n*Mobile:* +91${mobile}\n*Trip Type:* ${tripType === 'oneway' ? 'One Way' : 'Round Trip'}\n` +
         `*From:* ${from}\n*To:* ${to}\n*Date:* ${pDate}\n*Time:* ${pTime}\n` +
-        (vehicle ? `*Vehicle:* ${vehicle}` : '');
-
+        `*Vehicle:* ${vehicle}${fareInfo}`;
       window.open(`https://wa.me/919786457475?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
+    // ── Rental WhatsApp submit ───────────────────────────────────────────────
     function submitRentalBooking() {
-      const name = document.getElementById('rNameField').value.trim();
-      const mobile = document.getElementById('rMobile').value.trim();
-      const from = document.getElementById('rFrom').value.trim();
-      const hours = document.getElementById('rentalHours').value;
-      const pDate = document.getElementById('rPickupDate').value;
-      const pTime = document.getElementById('rPickupTime').value;
+      const name    = document.getElementById('rNameField').value.trim();
+      const mobile  = document.getElementById('rMobile').value.trim();
+      const from    = document.getElementById('rFrom').value.trim();
+      const to      = document.getElementById('rTo').value.trim();
+      const days    = document.getElementById('rentalDays').value;
+      const vehicle = document.getElementById('rVehicleType').value;
+      const pDate   = document.getElementById('rPickupDate').value;
+      const pTime   = document.getElementById('rPickupTime').value;
+      const estKm    = document.getElementById('r-est-km').textContent;
+      const estRent  = document.getElementById('r-est-rent').textContent;
+      const estFare  = document.getElementById('r-est-fare').textContent;
+      const estBatta = document.getElementById('r-est-batta').textContent;
+      const estTotal = document.getElementById('r-est-total').textContent;
 
-      if (!name || !mobile || !from) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-      if (!/^\d{10}$/.test(mobile)) {
-        alert('Please enter a valid 10-digit mobile number.');
-        return;
-      }
+      if (!name || !mobile || !from) { alert('Please fill in all required fields.'); return; }
+      if (!/^\d{10}$/.test(mobile)) { alert('Please enter a valid 10-digit mobile number.'); return; }
 
+      const fareInfo = estTotal !== '—' ? `\n*Distance:* ${estKm}\n*Base Rent:* ${estRent}\n*KM Charge:* ${estFare}\n*Driver Batta:* ${estBatta}\n*Total Estimate:* ${estTotal}` : '';
       const msg = `Hi Aadhvik Travels! I'd like to book a rental cab.\n\n` +
-        `*Name:* ${name}\n*Mobile:* +91${mobile}\n*Pickup:* ${from}\n` +
-        `*Rental:* ${hours}\n*Date:* ${pDate}\n*Time:* ${pTime}`;
-
+        `*Name:* ${name}\n*Mobile:* +91${mobile}\n*Pickup:* ${from}\n*Drop:* ${to}\n` +
+        `*Rental Days:* ${days} day(s)\n*Vehicle:* ${vehicle}\n*Date:* ${pDate}\n*Time:* ${pTime}${fareInfo}`;
       window.open(`https://wa.me/919786457475?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
