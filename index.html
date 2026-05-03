@@ -103,12 +103,26 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 20px;
+      padding: 10px 20px;
       max-width: 1200px;
       margin: 0 auto;
+      gap: 16px;
     }
-    .header-logo img { height: 48px; width: auto; }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
+    /* Logo - pill shape with transparent bg */
+    .header-logo img {
+      height: 56px;
+      width: auto;
+      border-radius: 100px;
+      background: transparent;
+      object-fit: contain;
+    }
+    /* Nav pushed to right side */
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      margin-left: auto;
+    }
     .nav-links a {
       color: var(--white);
       font-size: 15px;
@@ -118,7 +132,7 @@
     }
     .nav-links a:hover { opacity: 1; }
     .header-cta {
-      display: flex; align-items: center; gap: 16px;
+      display: flex; align-items: center; gap: 12px;
     }
     .btn-book {
       background: var(--white);
@@ -133,14 +147,20 @@
     .btn-book:hover { background: var(--yellow); }
     .header-phone {
       color: var(--white);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 6px;
-      opacity: 0.85;
+      gap: 5px;
+      opacity: 0.9;
+      white-space: nowrap;
     }
     .header-phone:hover { opacity: 1; }
+    .header-phones {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
     /* Mobile nav toggle */
     .nav-toggle {
@@ -560,63 +580,61 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    /* ===== HEADER PHONES ===== */
-    .header-phones { display: flex; flex-direction: column; gap: 2px; }
-    .header-cta { gap: 10px; }
-
     @media (max-width: 900px) {
       .about-inner { grid-template-columns: 1fr; gap: 32px; }
       .why-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      /* Header: hide phone in header, keep book button */
-      .header-phones { display: none; }
+      .header-inner { padding: 10px 14px; gap: 8px; }
+      .header-logo img { height: 46px; }
+      /* Always show phones on mobile */
+      .header-phones { display: flex; flex-direction: column; gap: 1px; }
+      .header-phone { font-size: 11px; gap: 3px; }
       .header-cta { gap: 8px; }
+      .btn-book { padding: 8px 14px; font-size: 12px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 13px; }
 
-      /* Hero */
       .hero { min-height: 320px; }
       .hero-content { padding: 48px 16px 40px; }
       .hero-content h1 { font-size: 26px; }
       .hero-content p { font-size: 15px; margin-bottom: 24px; }
 
-      /* Booking card */
       .booking-card { margin: 0 12px; top: -28px; }
       .booking-tabs { overflow-x: auto; }
       .tab-btn { font-size: 13px; padding: 12px 10px; white-space: nowrap; }
       .tab-panel { padding: 20px 16px; }
       .trip-type-row { flex-wrap: wrap; gap: 12px; }
 
-      /* About */
       .about-inner { grid-template-columns: 1fr; gap: 28px; }
       .about-img img { height: 240px; }
-
-      /* Why grid */
       .why-grid { grid-template-columns: 1fr; gap: 16px; }
       .why-card { padding: 24px 20px; }
 
-      /* Destinations */
       .dest-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .dest-card { padding: 16px 14px; }
       .dest-card h2 { font-size: 13px; }
       .dest-link { font-size: 11px; padding: 3px 8px; }
 
-      /* Footer */
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) {
-      /* Header compact */
-      .header-inner { padding: 10px 14px; }
+      .header-inner { padding: 8px 12px; gap: 6px; flex-wrap: nowrap; }
       .header-logo img { height: 38px; }
-      .btn-book { padding: 8px 16px; font-size: 13px; }
+      /* Show phones - very compact */
+      .header-phones { display: flex; flex-direction: column; gap: 1px; }
+      .header-phone { font-size: 10px; gap: 3px; opacity: 1; }
+      .header-phone i { font-size: 10px; }
+      .btn-book { padding: 7px 10px; font-size: 11px; }
 
-      /* Nav */
+      /* Nav hamburger */
       .nav-links { display: none; flex-direction: column; gap: 0; }
       .nav-links.open {
         display: flex;
         position: absolute;
-        top: 60px; left: 0; right: 0;
+        top: 60px; right: 0; left: 0;
         background: var(--dark-1);
         padding: 8px 0;
         box-shadow: 0 8px 24px rgba(0,0,0,0.25);
@@ -630,24 +648,17 @@
       }
       .nav-toggle { display: block; }
 
-      /* Forms */
       .form-grid { grid-template-columns: 1fr; gap: 12px; }
       .form-group.span2 { grid-column: span 1; }
       .tab-panel { padding: 16px 14px; }
-
-      /* Destinations single col on very small */
       .dest-grid { grid-template-columns: 1fr 1fr; }
 
-      /* Footer single col */
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .footer-bottom-links { justify-content: center; }
 
-      /* CTA */
       .cta-section { padding: 48px 16px; }
       .cta-section h4 { font-size: 22px; }
-
-      /* Why section */
       .why-section { padding: 56px 0; }
       .about-section { padding: 56px 0; }
       .destinations-section { padding: 56px 0; }
@@ -656,7 +667,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="header-inner">
       <a href="index.html" class="header-logo">
@@ -672,7 +682,10 @@
         <a href="contact.html">Contact</a>
       </nav>
       <div class="header-cta">
-        <div class="header-phones"><a href="tel:9786457475" class="header-phone"><i class="bi bi-telephone-fill"></i> 9786457475</a><a href="tel:9585580518" class="header-phone"><i class="bi bi-telephone-fill"></i> 9585580518</a></div>
+        <div class="header-phones">
+          <a href="tel:9786457475" class="header-phone"><i class="bi bi-telephone-fill"></i> 9786457475</a>
+          <a href="tel:9585580518" class="header-phone"><i class="bi bi-telephone-fill"></i> 9585580518</a>
+        </div>
         <a href="#booking" class="btn-book">Book Now</a>
       </div>
     </div>
@@ -1035,8 +1048,8 @@
     // ── Outstation Rates (₹/km) ──────────────────────────────────────────────
     const RATES = {
       sedan:  { oneway: 14, roundtrip: 13 },
-      suv:    { oneway: 18, roundtrip: 19 },
-      crysta: { oneway: 22, roundtrip: 23 },
+      suv:    { oneway: 19, roundtrip: 18 },
+      crysta: { oneway: 23, roundtrip: 22 },
     };
 
     // ── Rental Rates (base rent/day + ₹/km) ─────────────────────────────────
