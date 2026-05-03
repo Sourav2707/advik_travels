@@ -1,0 +1,3 @@
+Sitemap: https://aadhvikdroptaxi.com/sitemap.xml
+User-agent: *
+Allow: /
